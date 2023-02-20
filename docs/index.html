@@ -12,6 +12,39 @@
         width: 600px;
         height: 400px;
     }
+    .custom-hotspot {
+        height: 50px;
+        width: 50px;
+        border: 2px solid #f00;
+        border-radius: 8px;
+    }
+    div.custom-tooltip span {
+        visibility: hidden;
+        position: absolute;
+        border-radius: 3px;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        max-width: 200px;
+        padding: 5px 10px;
+        margin-left: -220px;
+        cursor: default;
+    }
+    div.custom-tooltip:hover span{
+        visibility: visible;
+    }
+    div.custom-tooltip:hover span:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid;
+        border-color: #fff transparent transparent transparent;
+        bottom: -20px;
+        left: -10px;
+        margin: 0 50%;
+    }
     </style>
 </head>
 <body>
@@ -20,8 +53,45 @@
     pannellum.viewer('panorama', {
         "type": "equirectangular",
         "panorama": "img/DESI3D-1.jpg",
-        "hotSpotDebug": true
+        "title": "DESI Focal Plane",
+        "autoLoad": true,
+        "pitch:": -90,
+        "yaw": 0,
+        "hfov": 120,
+        "hotSpotDebug": true,
+        "hotSpots": [
+            {
+                "pitch": -90,
+                "yaw": 0,
+                "cssClass": "custom-hotspot",
+                "createTooltipFunc": hotspot,
+                "createTooltipArgs": "The DESI focal plane is home to 5000 robotic eyes that observe the universe in 3D."
+            },
+            {
+                "pitch": -39,
+                "yaw": 95,
+                "cssClass": "custom-hotspot",
+                "createTooltipFunc": hotspot,
+                "createTooltipArgs": "Towers called fiducials create a reference grid for precisely aligning the 5000 robots."
+            },
+            {
+                "pitch": -58,
+                "yaw": 7,
+                "cssClass": "custom-hotspot",
+                "createTooltipFunc": hotspot,
+                "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy."
+            },
+        ],
     });
+    function hotspot(hotSpotDiv, args) {
+        hotSpotDiv.classList.add('custom-tooltip');
+        var span = document.createElement('span');
+        span.innerHTML = args;
+        hotSpotDiv.appendChild(span);
+        span.style.width = span.scrollWidth - 20 + 'px';
+        span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+        span.style.marginTop = -span.scrollHeight - 12 + 'px';
+    }
     </script>
 </body>
 </html>
