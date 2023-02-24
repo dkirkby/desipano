@@ -9,8 +9,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
     #panorama {
-        width: 800px;
-        height: 800px;
+        width: 100%;
+        height: 450px;
     }
     .custom-hotspot {
         height: 30px;
@@ -57,14 +57,16 @@
             "author": "David Kirkby / UC Irvine",
             "sceneFadeDuration": 1000,
             "autoLoad": true,
-            "hfov": 90,
+            "hfov": 120,
             //"hotSpotDebug": true
         },
         "scenes": {
             "parked": {
-                "title": "DESI robots parked for the day",
+                "title": "Parked DESI robots",
                 "type": "equirectangular",
                 "panorama": "img/DESI3D-1.jpg",
+                "pitch": -13.5,
+                "yaw": 0,
                 "hotSpots": [
                     {
                         "pitch": 4.5,
@@ -102,6 +104,13 @@
                         "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
                     },
                     {
+                        "pitch": -20,
+                        "yaw": 26,
+                        "cssClass": "custom-hotspot",
+                        "createTooltipFunc": hotspot,
+                        "createTooltipArgs": "The robots are parked after each night in their home positions"
+                    },
+                    {
                         "pitch": -5,
                         "yaw": 0,
                         "type": "scene",
@@ -114,6 +123,8 @@
                 "title": "DESI robots positioned to observe the sky",
                 "type": "equirectangular",
                 "panorama": "img/DESI3D-2.jpg",
+                "pitch": -13.5,
+                "yaw": 0,
                 "hotSpots": [
                     {
                         "pitch": 4.5,
@@ -151,6 +162,13 @@
                         "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
                     },
                     {
+                        "pitch": -20,
+                        "yaw": 26,
+                        "cssClass": "custom-hotspot",
+                        "createTooltipFunc": hotspot,
+                        "createTooltipArgs": "The robots move to trace the galaxies overhead as the telescope moves across the sky"
+                    },
+                    {
                         "pitch": -5,
                         "yaw": 0,
                         "type": "scene",
@@ -170,7 +188,7 @@
                 "title": "A closer look at the DESI focal plane",
                 "type": "equirectangular",
                 "panorama": "img/DESI3D-4.jpg",
-                "pitch": -43,
+                "pitch": -33,
                 "yaw": 0,
                 "hotSpots": [
                     {
@@ -202,8 +220,8 @@
                         "sceneId": "unparked"
                     },
                     {
-                        "pitch": -43,
-                        "yaw": 0,
+                        "pitch": -64,
+                        "yaw": 1,
                         "type": "scene",
                         "text": "Dive into the robots",
                         "sceneId": "dive"
@@ -216,14 +234,21 @@
                 "panorama": "img/DESI360-5.jpg",
                 "hotSpots": [
                     {
-                        "pitch": 40,
+                        "pitch": 13,
+                        "yaw": 23,
+                        "cssClass": "custom-hotspot",
+                        "createTooltipFunc": hotspot,
+                        "createTooltipArgs": "Each robot was built from ?? individual parts"
+                    },
+                    {
+                        "pitch": 27,
                         "yaw": 0,
                         "type": "scene",
                         "text": "Go back",
                         "sceneId": "closer"
                     },
                     {
-                        "pitch": -43,
+                        "pitch": -29,
                         "yaw": 0,
                         "type": "scene",
                         "text": "Go even deeper",
@@ -239,22 +264,29 @@
                 "yaw": 21,
                 "hotSpots": [
                     {
-                        "pitch": 85,
-                        "yaw": 162,
+                        "pitch": 82,
+                        "yaw": 51,
                         "cssClass": "custom-hotspot",
                         "createTooltipFunc": hotspot,
                         "createTooltipArgs": "Light from the most distant objects has traveled for over 10 billion years to reach DESI"
                     },
                     {
-                        "pitch": 27,
-                        "yaw": 9.5,
+                        "pitch": 0,
+                        "yaw": -105,
+                        "cssClass": "custom-hotspot",
+                        "createTooltipFunc": hotspot,
+                        "createTooltipArgs": "Robots are controlled using the same CANbus network found in cars"
+                    },
+                    {
+                        "pitch": 50,
+                        "yaw": -62,
                         "cssClass": "custom-hotspot",
                         "createTooltipFunc": hotspot,
                         "createTooltipArgs": "Robots use a pair of tiny motors to position their fibers"
                     },
                     {
-                        "pitch": 83,
-                        "yaw": 25,
+                        "pitch": 73,
+                        "yaw": 9,
                         "type": "scene",
                         "text": "Go back",
                         "sceneId": "dive"
