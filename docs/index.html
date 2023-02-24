@@ -49,10 +49,6 @@
     </style>
 </head>
 <body>
-    <p>
-        Welcome to the <a href="https://www.desi.lbl.gov/">DESI</a> focal plane, home to 5000 robotic eyes that are creating the most detailed 3D map of the universe ever.
-        Use the buttons below to zoom in and out, or view the panorama in fullscreen mode (recommended). Use the mouse or touch to look around this 360° panorama.
-    </p>
     <div id="panorama"></div>
     <script>
     pannellum.viewer('panorama', {
@@ -62,7 +58,7 @@
             "sceneFadeDuration": 1000,
             "autoLoad": true,
             "hfov": 90,
-            "hotSpotDebug": true
+            //"hotSpotDebug": true
         },
         "scenes": {
             "parked": {
