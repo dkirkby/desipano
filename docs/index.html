@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
     #panorama {
         width: 100%;
-        height: 450px;
+        height: 100vh;
     }
     .custom-hotspot {
         height: 30px;
@@ -97,8 +102,8 @@
                         "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy"
                     },
                     {
-                        "pitch": 32,
-                        "yaw": -27,
+                        "pitch": 22,
+                        "yaw": -33,
                         "cssClass": "custom-hotspot",
                         "createTooltipFunc": hotspot,
                         "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
@@ -109,6 +114,13 @@
                         "cssClass": "custom-hotspot",
                         "createTooltipFunc": hotspot,
                         "createTooltipArgs": "The robots are parked after each night in their home positions"
+                    },
+                    {
+                        "pitch": -9,
+                        "yaw": -51,
+                        "cssClass": "custom-hotspot",
+                        "createTooltipFunc": hotspot,
+                        "createTooltipArgs": "Each of the 10 pizza slices contains a camera to guide across the sky"
                     },
                     {
                         "pitch": -5,
@@ -213,6 +225,13 @@
                         "createTooltipArgs": "Robot movement is carefully choreographed to avoid collisions between neighbors"
                     },
                     {
+                        "pitch": -76,
+                        "yaw": 28.5,
+                        "cssClass": "custom-hotspot",
+                        "createTooltipFunc": hotspot,
+                        "createTooltipArgs": "Robots use a pair of tiny (4mm diameter) motors with gears to position their fibers"
+                    },
+                    {
                         "pitch": -2,
                         "yaw": 0,
                         "type": "scene",
@@ -238,7 +257,7 @@
                         "yaw": 23,
                         "cssClass": "custom-hotspot",
                         "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each robot was built from ?? individual parts"
+                        "createTooltipArgs": "Each robot was built from 22 parts and 10 fasteners"
                     },
                     {
                         "pitch": 27,
@@ -282,7 +301,7 @@
                         "yaw": -62,
                         "cssClass": "custom-hotspot",
                         "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Robots use a pair of tiny motors to position their fibers"
+                        "createTooltipArgs": "Robots use a pair of tiny (4mm diameter) motors with gears to position their fibers"
                     },
                     {
                         "pitch": 73,
