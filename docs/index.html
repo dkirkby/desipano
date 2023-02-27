@@ -23,7 +23,7 @@
         overflow: hidden;
     }
     #panorama {
-        width: 100%;
+        width: 100vw;
         height: 100vh;
     }
     .custom-hotspot {
@@ -65,271 +65,273 @@
 <body>
     <div id="panorama"></div>
     <script>
-    pannellum.viewer('panorama', {
-        "default": {
-            "firstScene": "parked",
-            "author": "David Kirkby / UC Irvine",
-            "sceneFadeDuration": 1000,
-            "autoLoad": true,
-            "hfov": 120,
-            //"hotSpotDebug": true
-        },
-        "scenes": {
-            "parked": {
-                "title": "Parked DESI robots",
-                "type": "equirectangular",
-                "panorama": "img/DESI3D-1.jpg",
-                "pitch": -13.5,
-                "yaw": 0,
-                "hotSpots": [
-                    {
-                        "pitch": 4.5,
-                        "yaw": -29.5,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi) west of Tucson, Arizona"
-                    },
-                    {
-                        "pitch": -90,
-                        "yaw": 0,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "The DESI focal plane is home to 5000 robotic eyes arranged into 10 pizza slices"
-                    },
-                    {
-                        "pitch": -38.5,
-                        "yaw": -13.0,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Towers called fiducials create a reference grid to precisely align the 5000 robots"
-                    },
-                    {
-                        "pitch": -41.5,
-                        "yaw": 3,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy"
-                    },
-                    {
-                        "pitch": 22,
-                        "yaw": -33,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
-                    },
-                    {
-                        "pitch": -20,
-                        "yaw": 26,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "The robots are parked after each night in their home positions"
-                    },
-                    {
-                        "pitch": -9,
-                        "yaw": -51,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each of the 10 pizza slices contains a camera to guide across the sky"
-                    },
-                    {
-                        "pitch": -5,
-                        "yaw": 0,
-                        "type": "scene",
-                        "text": "Move the robots",
-                        "sceneId": "unparked"
-                    }
-                ]
+    function createViewer(hfov) {
+        return pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "parked",
+                "author": "David Kirkby / UC Irvine",
+                "sceneFadeDuration": 1000,
+                "autoLoad": true,
+                "hfov": hfov,
+                //"hotSpotDebug": true
             },
-            "unparked": {
-                "title": "DESI robots positioned to observe the sky",
-                "type": "equirectangular",
-                "panorama": "img/DESI3D-2.jpg",
-                "pitch": -13.5,
-                "yaw": 0,
-                "hotSpots": [
-                    {
-                        "pitch": 4.5,
-                        "yaw": -29.5,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi) west of Tucson, Arizona."
-                    },
-                    {
-                        "pitch": -90,
-                        "yaw": 0,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "The DESI focal plane is home to 5000 robotic eyes arranged into 10 pizza slices."
-                    },
-                    {
-                        "pitch": -38.5,
-                        "yaw": -13.0,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Towers called fiducials create a reference grid to precisely align the 5000 robots."
-                    },
-                    {
-                        "pitch": -41.5,
-                        "yaw": 3,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy."
-                    },
-                    {
-                        "pitch": 32,
-                        "yaw": -27,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
-                    },
-                    {
-                        "pitch": -20,
-                        "yaw": 26,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "The robots move to trace the galaxies overhead as the telescope moves across the sky"
-                    },
-                    {
-                        "pitch": -9,
-                        "yaw": -51,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each of the 10 pizza slices contains a camera to guide across the sky"
-                    },
-                    {
-                        "pitch": -5,
-                        "yaw": 0,
-                        "type": "scene",
-                        "text": "Park the robots",
-                        "sceneId": "parked"
-                    },
-                    {
-                        "pitch": -5.5,
-                        "yaw": 18,
-                        "type": "scene",
-                        "text": "Take a closer look",
-                        "sceneId": "closer"
-                    }
-                ]
-            },
-            "closer": {
-                "title": "A closer look at the DESI focal plane",
-                "type": "equirectangular",
-                "panorama": "img/DESI3D-4.jpg",
-                "pitch": -33,
-                "yaw": 0,
-                "hotSpots": [
-                    {
-                        "pitch": -28.5,
-                        "yaw": 15.2,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each fiber is about the size of a human hair and must be positioned to a fraction of a hair's width to capture the light from a distant star or galaxy"
-                    },
-                    {
-                        "pitch": -55,
-                        "yaw": -27,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each fiber is about 40 meters long and carries the light from a distant star or galaxy to the DESI spectrographs"
-                    },
-                    {
-                        "pitch": -17,
-                        "yaw": -28.7,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Robot movement is carefully choreographed to avoid collisions between neighbors"
-                    },
-                    {
-                        "pitch": -76,
-                        "yaw": 28.5,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Robots use a pair of tiny (4mm diameter) motors with gears to position their fibers"
-                    },
-                    {
-                        "pitch": -2,
-                        "yaw": 0,
-                        "type": "scene",
-                        "text": "Go back",
-                        "sceneId": "unparked"
-                    },
-                    {
-                        "pitch": -64,
-                        "yaw": 1,
-                        "type": "scene",
-                        "text": "Dive into the robots",
-                        "sceneId": "dive"
-                    }
-                ]
-            },
-            "dive": {
-                "title": "Among the DESI robots",
-                "type": "equirectangular",
-                "panorama": "img/DESI360-5.jpg",
-                "hotSpots": [
-                    {
-                        "pitch": 13,
-                        "yaw": 23,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Each robot was built from 22 parts and 10 fasteners"
-                    },
-                    {
-                        "pitch": 27,
-                        "yaw": 0,
-                        "type": "scene",
-                        "text": "Go back",
-                        "sceneId": "closer"
-                    },
-                    {
-                        "pitch": -29,
-                        "yaw": 0,
-                        "type": "scene",
-                        "text": "Go even deeper",
-                        "sceneId": "bottom"
-                    }
-                ]
-            },
-            "bottom": {
-                "title": "At the base of the DESI robots",
-                "type": "equirectangular",
-                "panorama": "img/DESI360-7.jpg",
-                "pitch": 62,
-                "yaw": 21,
-                "hotSpots": [
-                    {
-                        "pitch": 82,
-                        "yaw": 51,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Light from the most distant objects has traveled for over 10 billion years to reach DESI"
-                    },
-                    {
-                        "pitch": 0,
-                        "yaw": -105,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Robots are controlled using the same CANbus network found in cars"
-                    },
-                    {
-                        "pitch": 50,
-                        "yaw": -62,
-                        "cssClass": "custom-hotspot",
-                        "createTooltipFunc": hotspot,
-                        "createTooltipArgs": "Robots use a pair of tiny (4mm diameter) motors with gears to position their fibers"
-                    },
-                    {
-                        "pitch": 73,
-                        "yaw": 9,
-                        "type": "scene",
-                        "text": "Go back",
-                        "sceneId": "dive"
-                    }
-                ]
+            "scenes": {
+                "parked": {
+                    "title": "Parked DESI robots",
+                    "type": "equirectangular",
+                    "panorama": "img/DESI3D-1.jpg",
+                    "pitch": -13.5,
+                    "yaw": 0,
+                    "hotSpots": [
+                        {
+                            "pitch": 4.5,
+                            "yaw": -29.5,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi) west of Tucson, Arizona"
+                        },
+                        {
+                            "pitch": -90,
+                            "yaw": 0,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "The DESI focal plane is home to 5000 robotic eyes arranged into 10 pizza slices"
+                        },
+                        {
+                            "pitch": -38.5,
+                            "yaw": -13.0,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Towers called fiducials create a reference grid to precisely align the 5000 robots"
+                        },
+                        {
+                            "pitch": -41.5,
+                            "yaw": 3,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy"
+                        },
+                        {
+                            "pitch": 22,
+                            "yaw": -33,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
+                        },
+                        {
+                            "pitch": -20,
+                            "yaw": 26,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "The robots are parked after each night in their home positions"
+                        },
+                        {
+                            "pitch": -9,
+                            "yaw": -51,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each of the 10 pizza slices contains a camera to guide across the sky"
+                        },
+                        {
+                            "pitch": -5,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "Move the robots",
+                            "sceneId": "unparked"
+                        }
+                    ]
+                },
+                "unparked": {
+                    "title": "DESI robots positioned to observe the sky",
+                    "type": "equirectangular",
+                    "panorama": "img/DESI3D-2.jpg",
+                    "pitch": -13.5,
+                    "yaw": 0,
+                    "hotSpots": [
+                        {
+                            "pitch": 4.5,
+                            "yaw": -29.5,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi) west of Tucson, Arizona."
+                        },
+                        {
+                            "pitch": -90,
+                            "yaw": 0,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "The DESI focal plane is home to 5000 robotic eyes arranged into 10 pizza slices."
+                        },
+                        {
+                            "pitch": -38.5,
+                            "yaw": -13.0,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Towers called fiducials create a reference grid to precisely align the 5000 robots."
+                        },
+                        {
+                            "pitch": -41.5,
+                            "yaw": 3,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy."
+                        },
+                        {
+                            "pitch": 32,
+                            "yaw": -27,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Most of the light in the night sky is from stars in the Milky Way but DESI concentrates on faint galaxies in the distant universe"
+                        },
+                        {
+                            "pitch": -20,
+                            "yaw": 26,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "The robots move to trace the galaxies overhead as the telescope moves across the sky"
+                        },
+                        {
+                            "pitch": -9,
+                            "yaw": -51,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each of the 10 pizza slices contains a camera to guide across the sky"
+                        },
+                        {
+                            "pitch": -5,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "Park the robots",
+                            "sceneId": "parked"
+                        },
+                        {
+                            "pitch": -5.5,
+                            "yaw": 18,
+                            "type": "scene",
+                            "text": "Take a closer look",
+                            "sceneId": "closer"
+                        }
+                    ]
+                },
+                "closer": {
+                    "title": "A closer look at the DESI focal plane",
+                    "type": "equirectangular",
+                    "panorama": "img/DESI3D-4.jpg",
+                    "pitch": -33,
+                    "yaw": 0,
+                    "hotSpots": [
+                        {
+                            "pitch": -28.5,
+                            "yaw": 15.2,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each fiber is about the size of a human hair and must be positioned to a fraction of a hair's width to capture the light from a distant star or galaxy"
+                        },
+                        {
+                            "pitch": -55,
+                            "yaw": -27,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each fiber is about 40 meters long and carries the light from a distant star or galaxy to the DESI spectrographs"
+                        },
+                        {
+                            "pitch": -17,
+                            "yaw": -28.7,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Robot movement is carefully choreographed to avoid collisions between neighbors"
+                        },
+                        {
+                            "pitch": -76,
+                            "yaw": 28.5,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Robots use a pair of tiny (4mm diameter) motors with gears to position their fibers"
+                        },
+                        {
+                            "pitch": -2,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "Go back",
+                            "sceneId": "unparked"
+                        },
+                        {
+                            "pitch": -64,
+                            "yaw": 1,
+                            "type": "scene",
+                            "text": "Dive into the robots",
+                            "sceneId": "dive"
+                        }
+                    ]
+                },
+                "dive": {
+                    "title": "Among the DESI robots",
+                    "type": "equirectangular",
+                    "panorama": "img/DESI360-5.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": 13,
+                            "yaw": 23,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Each robot was built from 22 parts and 10 fasteners"
+                        },
+                        {
+                            "pitch": 27,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "Go back",
+                            "sceneId": "closer"
+                        },
+                        {
+                            "pitch": -29,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "Go even deeper",
+                            "sceneId": "bottom"
+                        }
+                    ]
+                },
+                "bottom": {
+                    "title": "At the base of the DESI robots",
+                    "type": "equirectangular",
+                    "panorama": "img/DESI360-7.jpg",
+                    "pitch": 62,
+                    "yaw": 21,
+                    "hotSpots": [
+                        {
+                            "pitch": 82,
+                            "yaw": 51,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Light from the most distant objects has traveled for over 10 billion years to reach DESI"
+                        },
+                        {
+                            "pitch": 0,
+                            "yaw": -105,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Robots are controlled using the same CANbus network found in cars"
+                        },
+                        {
+                            "pitch": 50,
+                            "yaw": -62,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Robots use a pair of tiny (4mm diameter) motors with gears to position their fibers"
+                        },
+                        {
+                            "pitch": 73,
+                            "yaw": 9,
+                            "type": "scene",
+                            "text": "Go back",
+                            "sceneId": "dive"
+                        }
+                    ]
+                }
             }
-        }
-    });
+        });
+    }
     function hotspot(hotSpotDiv, args) {
         hotSpotDiv.classList.add('custom-tooltip');
         var span = document.createElement('span');
@@ -339,6 +341,30 @@
         span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
         span.style.marginTop = -span.scrollHeight - 12 + 'px';
     }
+    var viewer, currentWidth, fovPerPixel = 0.09; // degrees per pixel
+    function onLoad() {
+        console.log("loaded page at " + window.innerWidth + "x" + window.innerHeight);
+        const extent = Math.max(window.innerWidth, window.innerHeight);
+        console.log("use initial FOV of " + fovPerPixel + " deg/pix");
+        currentWidth = window.innerWidth;
+        const hfov = currentWidth * fovPerPixel;
+        console.log("creating viewer with width " + currentWidth + " pix and hfov " + hfov + " deg");
+        viewer = createViewer(hfov);
+    }
+    function onResize(event) {
+        // Update the pixel FOV before the resize, since it may have changed due to user zooming.
+        const currentHFov = viewer.getHfov();
+        fovPerPixel = currentHFov / currentWidth;
+        ////console.log("resize to " + window.innerWidth + "x" + window.innerHeight);
+        ////console.log("FOV per pixel is now " + fovPerPixel + " deg/pix");
+        // Calculate new hfov at this window size.
+        currentWidth = window.innerWidth;
+        const hfov = currentWidth * fovPerPixel;
+        ////console.log("setting hfov to " + hfov + " deg");
+        viewer.setHfov(hfov, false); // false = don't animate
+    }
+    window.addEventListener('resize', onResize, false);
+    window.addEventListener('DOMContentLoaded', onLoad, false);
     </script>
 </body>
 </html>
