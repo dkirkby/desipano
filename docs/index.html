@@ -16,7 +16,10 @@
     <title>DESI focal plane 360 panoramas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    <script src="https://kit.fontawesome.com/94d4a13d33.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css"/>
     <style>
     body {
         margin: 0;
@@ -33,33 +36,20 @@
         border: 4px solid #f00;
         border-radius: 8px;
     }
-    div.custom-tooltip span {
-        visibility: hidden;
-        position: absolute;
-        border-radius: 3px;
-        background-color: #fff;
-        color: #000;
+    .navigation-hotspot {
+        height: 30px;
+        width: 30px;
+        border: 4px solid #ff0;
+        border-radius: 8px;
+    }
+    .navigation-hotspot::before {
+        color: #f00;
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
         text-align: center;
-        font-size: 12px;
-        max-width: 200px;
-        padding: 5px 10px;
-        margin-left: -220px;
-        cursor: default;
-    }
-    div.custom-tooltip:hover span{
-        visibility: visible;
-    }
-    div.custom-tooltip:hover span:after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-width: 10px;
-        border-style: solid;
-        border-color: #fff transparent transparent transparent;
-        bottom: -20px;
-        left: -10px;
-        margin: 0 50%;
+        display: inline-block;
+        content: '?';
     }
     </style>
 </head>
@@ -153,6 +143,7 @@
                             "targetPitch": "same",
                             "targetYaw": "same",
                             "targetHfov": "same",
+                            //"cssClass": "navigation-hotspot",
                             "type": "scene",
                             "text": "Move the robots",
                             "sceneId": "unparked"
@@ -368,6 +359,13 @@
         });
     }
     function hotspot(hotSpotDiv, args) {
+        tippy(hotSpotDiv, {
+            content: args,
+            theme: 'light-border',
+            animation: 'scale'
+        });
+    }
+    function hotspotOld(hotSpotDiv, args) {
         hotSpotDiv.classList.add('custom-tooltip');
         var span = document.createElement('span');
         span.innerHTML = args;
