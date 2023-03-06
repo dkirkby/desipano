@@ -56,6 +56,15 @@
     .zoom-out-icon {
         background-position: 0 -144px;
     }
+    .help-hotspot {
+        height: 48px;
+        width: 48px;
+        border: 1px solid #fff;
+        border-radius: 24px;
+        background-color: #fff;
+        background-image: url(img/nav-icons.svg);
+        background-position: 0 -192px;
+    }
     </style>
 </head>
 <body>
@@ -112,7 +121,7 @@
                             "yaw": -13.0,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "123 fixed towers interspersed among the robots each project 4 bright spots to create a reference grid that aligns the 5000 moving robots."
+                            "createTooltipArgs": "123 fixed towers interspersed among the robots each project 4 bright spots to create a reference grid we use to align the 5000 moving robots."
                         },
                         {
                             "pitch": -41.5,
@@ -153,6 +162,13 @@
                             "createTooltipFunc": hotspot,
                             "createTooltipArgs": "Move the robots",
                             "sceneId": "unparked"
+                        },
+                        {
+                            "pitch": 11,
+                            "yaw": 0,
+                            "cssClass": "help-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Welcome to the Dark Energy Spectroscopic Instrument (DESI). You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe. Pan and zoom around this 360-degree panorama and explore the red boxes to learn more."
                         }
                     ]
                 },
@@ -196,7 +212,7 @@
                             "yaw": -13.0,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "123 fixed towers interspersed among the robots each project 4 bright spots to create a reference grid that aligns the 5000 moving robots."
+                            "createTooltipArgs": "123 fixed towers interspersed among the robots each project 4 bright spots to create a reference grid we use to align the 5000 moving robots."
                         },
                         {
                             "pitch": -41.5,
@@ -246,6 +262,13 @@
                             "createTooltipArgs": "Take a closer look",
                             "cssClass": "nav-hotspot zoom-in-icon",
                             "sceneId": "closer"
+                        },
+                        {
+                            "pitch": 11,
+                            "yaw": 0,
+                            "cssClass": "help-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Welcome to the Dark Energy Spectroscopic Instrument (DESI). You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe. Pan and zoom around this 360-degree panorama and explore the red boxes to learn more."
                         }
                     ]
                 },
