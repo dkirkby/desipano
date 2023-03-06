@@ -71,6 +71,7 @@
     <div id="panorama"></div>
     <script>
     function createViewer(hfov) {
+        const helpText = 'Welcome to the <a href="https://www.desi.lbl.gov/">Dark Energy Spectroscopic Instrument</a> (DESI). You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe. Pan and zoom around this 360-degree panorama and explore the red boxes to learn more.';
         return pannellum.viewer('panorama', {
             "default": {
                 "firstScene": "parked",
@@ -168,7 +169,7 @@
                             "yaw": 0,
                             "cssClass": "help-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "Welcome to the Dark Energy Spectroscopic Instrument (DESI). You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe. Pan and zoom around this 360-degree panorama and explore the red boxes to learn more."
+                            "createTooltipArgs": helpText
                         }
                     ]
                 },
@@ -268,7 +269,7 @@
                             "yaw": 0,
                             "cssClass": "help-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "Welcome to the Dark Energy Spectroscopic Instrument (DESI). You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe. Pan and zoom around this 360-degree panorama and explore the red boxes to learn more."
+                            "createTooltipArgs": helpText
                         }
                     ]
                 },
@@ -405,7 +406,9 @@
         tippy(hotSpotDiv, {
             content: args,
             theme: 'light-border',
-            animation: 'scale'
+            animation: 'scale',
+            allowHTML: true,
+            interactive: true
         });
     }
     function hotspotOld(hotSpotDiv, args) {
