@@ -150,7 +150,8 @@
                             "targetHfov": "same",
                             "cssClass": "nav-hotspot move-icon",
                             "type": "scene",
-                            "text": "Move the robots",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Move the robots",
                             "sceneId": "unparked"
                         }
                     ]
@@ -233,14 +234,16 @@
                             "targetHfov": "same",
                             "type": "scene",
                             "cssClass": "nav-hotspot home-icon",
-                            "text": "Park the robots",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Park the robots",
                             "sceneId": "parked"
                         },
                         {
                             "pitch": -5.5,
                             "yaw": 18,
                             "type": "scene",
-                            "text": "Take a closer look",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Take a closer look",
                             "cssClass": "nav-hotspot zoom-in-icon",
                             "sceneId": "closer"
                         }
@@ -286,7 +289,8 @@
                             "yaw": 0,
                             "type": "scene",
                             "cssClass": "nav-hotspot zoom-out-icon",
-                            "text": "Go back",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Go back",
                             "sceneId": "unparked"
                         },
                         {
@@ -294,7 +298,8 @@
                             "yaw": 1,
                             "type": "scene",
                             "cssClass": "nav-hotspot zoom-in-icon",
-                            "text": "Dive into the robots",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Dive into the robots",
                             "sceneId": "dive"
                         }
                     ]
@@ -316,7 +321,8 @@
                             "yaw": 0,
                             "type": "scene",
                             "cssClass": "nav-hotspot zoom-out-icon",
-                            "text": "Go back",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Go back",
                             "sceneId": "closer"
                         },
                         {
@@ -324,7 +330,8 @@
                             "yaw": 0,
                             "type": "scene",
                             "cssClass": "nav-hotspot zoom-in-icon",
-                            "text": "Go even deeper",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Go even deeper",
                             "sceneId": "bottom"
                         }
                     ]
@@ -362,7 +369,8 @@
                             "yaw": 9,
                             "type": "scene",
                             "cssClass": "nav-hotspot zoom-out-icon",
-                            "text": "Go back",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Go back",
                             "sceneId": "dive"
                         }
                     ]
