@@ -19,4 +19,5 @@ To view the locally served content in your browser, visit http://localhost:8000/
 
 ## Deployment
 
-The static website hosted at https://dkirkby.github.io/desipano/ uses [GitHub Pages](https://pages.github.com/) so any commits to the [main branch docs folder](https://github.com/dkirkby/desipano/tree/main/docs) appear immediately under github.com/dkirkby/desipano then, after a short delay, under dkirkby.github.io/desipano.
+The static website hosted at https://dkirkby.github.io/desipano/ uses [GitHub Pages](https://pages.github.com/). Any commits to the [main branch docs folder](https://github.com/dkirkby/desipano/tree/main/docs) appear immediately under github.com/dkirkby/desipano but
+then take some time (at least a few seconds) to propagate through the GitHub deployment actions and CDN caches.  See [here](https://stackoverflow.com/questions/24851824/how-long-does-it-take-for-github-page-to-show-changes-after-changing-index-html) for details.
