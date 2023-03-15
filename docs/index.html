@@ -71,7 +71,30 @@
     <div id="panorama"></div>
     <script>
     function createViewer(hfov) {
-        const helpText = 'Welcome to the <a href="https://www.desi.lbl.gov/">Dark Energy Spectroscopic Instrument</a> (DESI). You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe. Pan and zoom around this 360-degree panorama and explore the red boxes to learn more.';
+        const helpText = `
+        Welcome to the <a href="https://www.desi.lbl.gov/">Dark Energy Spectroscopic Instrument</a> (DESI).
+        You are viewing the 5000 robotic eyes than scan the distant cosmos to create the largest 3D map of the
+        universe ever made and study the mysterious dark energy that is accelerating the expansion of the universe.
+        Pan and zoom around this 360-degree panorama and explore the red boxes to learn more.`;
+        const kpnoText = `
+        DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi)
+        west of Tucson, Arizona.
+        <img src="img/kitt-peak.jpg" style="width: 100%; height: auto; margin-top: 10px;"/>`;
+        const tonText = `
+        Kitt Peak is located on the Tohono O'odham Reservation and has been the ancestral homeland of the
+        <a href="http://www.tonation-nsn.gov/">Tohono O'odham Nation</a> for over 2,000 years.`;
+        const gfaText = `
+        The 5000 robots are arranged into 10 identical pizza slices, each containing a camera to help guide
+        the telescope across the sky.
+        <img src="img/GFA-closeup.jpg" style="width: 100%; height: auto; margin-top: 10px;"/>`;
+        const fidText = `
+        123 fixed towers interspersed among the robots each project 4 bright spots to create a reference
+        grid we use to align the 5000 moving robots.
+        <img src="img/fiducials.jpg" style="width: 100%; height: auto; margin-top: 10px;"/>`;
+        const pencilText = `
+        Each robot is about the size of a pencil and precisely positions a fiber to capture the light
+        from a distant star or galaxy.
+        <img src="img/robot-pencil.jpg" style="width: 100%; height: auto; margin-top: 10px;"/>`;
         return pannellum.viewer('panorama', {
             "default": {
                 "firstScene": "parked",
@@ -94,14 +117,14 @@
                             "yaw": -29.5,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi) west of Tucson, Arizona."
+                            "createTooltipArgs": kpnoText
                         },
                         {
                             "pitch": 3.0,
                             "yaw": -37.0,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "Kitt Peak is located on the Tohono O'odham Reservation and has been the ancestral homeland of the Tohono O'odham Nation for over 2,000 years."
+                            "createTooltipArgs": tonText
                         },
                         {
                             "pitch": 17,
@@ -122,14 +145,14 @@
                             "yaw": -13.0,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "123 fixed towers interspersed among the robots each project 4 bright spots to create a reference grid we use to align the 5000 moving robots."
+                            "createTooltipArgs": fidText
                         },
                         {
                             "pitch": -41.5,
                             "yaw": 3,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy."
+                            "createTooltipArgs": pencilText
                         },
                         {
                             "pitch": 22,
@@ -150,7 +173,7 @@
                             "yaw": -51,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "The 5000 robots are arranged into 10 identical pizza slices, each containing a camera to help guide the telescope across the sky."
+                            "createTooltipArgs": gfaText
                         },
                         {
                             "pitch": -5,
@@ -185,14 +208,14 @@
                             "yaw": -29.5,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "DESI is located on Kitt Peak, in the Tohono Oʼodham Nation, above the Arizona-Sonoran Desert 88 km (55 mi) west of Tucson, Arizona."
+                            "createTooltipArgs": kpnoText
                         },
                         {
                             "pitch": 3.0,
                             "yaw": -37.0,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "Kitt Peak is located on the Tohono O'odham Reservation and has been the ancestral homeland of the Tohono O'odham Nation for over 2,000 years."
+                            "createTooltipArgs": tonText
                         },
                         {
                             "pitch": 17,
@@ -213,14 +236,14 @@
                             "yaw": -13.0,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "123 fixed towers interspersed among the robots each project 4 bright spots to create a reference grid we use to align the 5000 moving robots."
+                            "createTooltipArgs": fidText
                         },
                         {
                             "pitch": -41.5,
                             "yaw": 3,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "Each robot is about the size of a pencil and precisely positions a fiber to capture the light from a distant star or galaxy."
+                            "createTooltipArgs": pencilText
                         },
                         {
                             "pitch": 32,
@@ -241,7 +264,7 @@
                             "yaw": -51,
                             "cssClass": "custom-hotspot",
                             "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "The 5000 robots are arranged into 10 identical pizza slices, each containing a camera to help guide the telescope across the sky."
+                            "createTooltipArgs": gfaText
                         },
                         {
                             "pitch": -5,
