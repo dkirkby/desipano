@@ -56,6 +56,9 @@
     .zoom-out-icon {
         background-position: 0 -144px;
     }
+    .video-icon {
+        background-position: 0 -240px;
+    }
     .help-hotspot {
         height: 48px;
         width: 48px;
@@ -95,6 +98,11 @@
         Each robot is about the size of a pencil and precisely positions a fiber to capture the light
         from a distant star or galaxy.
         <img src="img/robot-pencil.jpg" style="width: 100%; height: auto; margin-top: 10px;"/>`;
+        const videoText = `
+        <video width="960" height="auto" controls muted autoplay>
+            <source src="img/fp-movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>`;
         return pannellum.viewer('panorama', {
             "default": {
                 "firstScene": "parked",
@@ -136,9 +144,9 @@
                         {
                             "pitch": -90,
                             "yaw": 0,
-                            "cssClass": "custom-hotspot",
-                            "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "The DESI focal plane is constructed from 10 identical pizza slices, each containing 500 robotic eyes, that converge on this point."
+                            "cssClass": "nav-hotspot video-icon",
+                            "createTooltipFunc": movieHotspot,
+                            "createTooltipArgs": videoText
                         },
                         {
                             "pitch": -38.5,
@@ -227,9 +235,9 @@
                         {
                             "pitch": -90,
                             "yaw": 0,
-                            "cssClass": "custom-hotspot",
-                            "createTooltipFunc": hotspot,
-                            "createTooltipArgs": "The DESI focal plane is constructed from 10 identical pizza slices, each containing 500 robotic eyes, that converge on this point."
+                            "cssClass": "nav-hotspot video-icon",
+                            "createTooltipFunc": movieHotspot,
+                            "createTooltipArgs": videoText
                         },
                         {
                             "pitch": -38.5,
@@ -432,17 +440,19 @@
             animation: 'scale',
             allowHTML: true,
             interactive: true,
-            appendTo: document.body
+            appendTo: document.body,
         });
     }
-    function hotspotOld(hotSpotDiv, args) {
-        hotSpotDiv.classList.add('custom-tooltip');
-        var span = document.createElement('span');
-        span.innerHTML = args;
-        hotSpotDiv.appendChild(span);
-        span.style.width = span.scrollWidth - 20 + 'px';
-        span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
-        span.style.marginTop = -span.scrollHeight - 12 + 'px';
+    function movieHotspot(hotSpotDiv, args) {
+        tippy(hotSpotDiv, {
+            content: args,
+            theme: 'light-border',
+            animation: 'scale',
+            allowHTML: true,
+            interactive: true,
+            appendTo: document.body,
+            maxWidth: "960px"
+        });
     }
     var viewer, currentWidth, fovPerPixel = 0.09; // degrees per pixel
     function onLoad() {
