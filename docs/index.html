@@ -99,7 +99,7 @@
         from a distant star or galaxy.
         <img src="img/robot-pencil.jpg" style="width: 100%; height: auto; margin-top: 10px;"/>`;
         const videoText = `
-        <video width="960" height="auto" controls muted autoplay>
+        <video width="100%" height="auto" controls muted autoplay>
             <source src="img/fp-movie.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>`;
@@ -451,7 +451,7 @@
             allowHTML: true,
             interactive: true,
             appendTo: document.body,
-            maxWidth: "960px"
+            maxWidth: "min(100vw,960px)"
         });
     }
     var viewer, currentWidth, fovPerPixel = 0.09; // degrees per pixel
