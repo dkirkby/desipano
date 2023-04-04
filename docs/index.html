@@ -104,6 +104,9 @@
             <source src="img/fp-movie.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>`;
+        const gapText = `
+        Thin gaps separate the 10 identical pizza slices that make up the DESI focal plane.
+        Click on the magnifying glass to dive into this gap for a closer look at the robots.`;
         return pannellum.viewer('panorama', {
             "default": {
                 "firstScene": "parked",
@@ -164,6 +167,13 @@
                             "createTooltipArgs": pencilText
                         },
                         {
+                            "pitch": -37.7,
+                            "yaw": 18.2,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": gapText
+                        },
+                        {
                             "pitch": 22,
                             "yaw": -33,
                             "cssClass": "custom-hotspot",
@@ -195,6 +205,15 @@
                             "createTooltipFunc": hotspot,
                             "createTooltipArgs": "Move the robots",
                             "sceneId": "unparked"
+                        },
+                        {
+                            "pitch": -25.9,
+                            "yaw": 17.8,
+                            "type": "scene",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": "Take a closer look",
+                            "cssClass": "nav-hotspot zoom-in-icon",
+                            "sceneId": "closer"
                         },
                         {
                             "pitch": 11,
@@ -255,6 +274,13 @@
                             "createTooltipArgs": pencilText
                         },
                         {
+                            "pitch": -37.7,
+                            "yaw": 18.2,
+                            "cssClass": "custom-hotspot",
+                            "createTooltipFunc": hotspot,
+                            "createTooltipArgs": gapText
+                        },
+                        {
                             "pitch": 32,
                             "yaw": -27,
                             "cssClass": "custom-hotspot",
@@ -288,8 +314,8 @@
                             "sceneId": "parked"
                         },
                         {
-                            "pitch": -5.5,
-                            "yaw": 18,
+                            "pitch": -25.9,
+                            "yaw": 17.8,
                             "type": "scene",
                             "createTooltipFunc": hotspot,
                             "createTooltipArgs": "Take a closer look",
